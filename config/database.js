@@ -1,3 +1,3 @@
 module.exports = {
-    'url': 'mongodb://127.0.0.1:27017/opsnode'
+    'url': 'mongodb://stcursi:stefano90@ds159880.mlab.com:59880/heroku_1vz7cwtf'
 }
