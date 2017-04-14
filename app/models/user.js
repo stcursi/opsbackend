@@ -10,11 +10,11 @@ var UserSchema = new mongoose.Schema({
         required: true
     },
     name: {
-        tye: String,
+        type: String,
         required: true
     },
     surname: {
-        tye: String,
+        type: String,
         required: true
     },
     password: {
