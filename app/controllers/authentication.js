@@ -30,6 +30,9 @@ exports.login = function(req, res, next){
 exports.register = function(req, res, next){
  
     var email = req.body.email;
+    var nameStringa = req.body.email.split('@');
+    var name = nameStringa[0];
+    var surname = nameStringa[0];
     var password = req.body.password;
     var role = req.body.role;
  
@@ -53,6 +56,8 @@ exports.register = function(req, res, next){
  
         var user = new User({
             email: email,
+            name: name,
+            surname: surname,
             password: password,
             role: role
         });
