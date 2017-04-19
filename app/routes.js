@@ -1,5 +1,6 @@
 var AuthenticationController = require('./controllers/authentication'),  
     TodoController = require('./controllers/todos'),  
+    MessageController = require ('./controllers/messagging'),
     express = require('express'),
     passportService = require('../config/passport'),
     passport = require('passport');
@@ -11,7 +12,8 @@ module.exports = function(app){
  
     var apiRoutes = express.Router(),
         authRoutes = express.Router(),
-        todoRoutes = express.Router();
+        todoRoutes = express.Router(),
+        messageRoutes = express.Router();
  
     // Auth Routes
     apiRoutes.use('/auth', authRoutes);
@@ -30,6 +32,13 @@ module.exports = function(app){
     todoRoutes.post('/', requireAuth, AuthenticationController.roleAuthorization(['creator','editor']), TodoController.createTodo);
     todoRoutes.delete('/:todo_id', requireAuth, AuthenticationController.roleAuthorization(['editor']), TodoController.deleteTodo);
  
+    // MessageRoutes
+
+    apiRoutes.use('/message', messageRoutes);
+
+    messageRoutes.get('/getmessages', MessageController.getMessages);
+    messageRoutes.post('/savemessage', MessageController.createMessage);
+
     // Set up routes
     app.use('/api', apiRoutes);
  

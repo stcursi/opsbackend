@@ -1,6 +1,5 @@
 var Message = require('../models/message');
 
-
 exports.createMessage = function (req, res, next) {
 
     sender: req.body.sender;
@@ -8,7 +7,7 @@ exports.createMessage = function (req, res, next) {
     reception: req.body.reception;
     longitude: req.body.longitude;
     latitude: req.body.latitude;
-    received: req.body.received;
+    received: req.body.received;g
 
     if (!receiver) {
         return res.status(422).send({ error: 'You must enter a receiver' });
