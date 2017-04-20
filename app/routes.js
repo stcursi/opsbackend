@@ -36,7 +36,7 @@ module.exports = function(app){
 
     apiRoutes.use('/message', messageRoutes);
 
-    messageRoutes.get('/getmessages', MessageController.getMessages);
+    messageRoutes.post('/getmessages', MessageController.getMessages);
     messageRoutes.post('/savemessage', MessageController.createMessage);
 
     // Set up routes
