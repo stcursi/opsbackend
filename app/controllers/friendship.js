@@ -2,8 +2,7 @@ var User = require('../models/user');
 
 
 
-exports.getAllUsers = function (res, next) {
-
+exports.getAllUsers = function (req,res, next) {
 
     User.find({}, function (err, users) {
         if (err) {
