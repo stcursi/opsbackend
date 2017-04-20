@@ -52,6 +52,6 @@ exports.getMessages = function (req, res, next) {
         } else {
             return res.json(messages);
         }
-    }); // end Team.find)
+    });
 
 }

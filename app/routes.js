@@ -1,6 +1,7 @@
 var AuthenticationController = require('./controllers/authentication'),  
     TodoController = require('./controllers/todos'),  
     MessageController = require ('./controllers/messagging'),
+    FriendshipController = require('./controllers/friendship'),
     express = require('express'),
     passportService = require('../config/passport'),
     passport = require('passport');
@@ -14,6 +15,7 @@ module.exports = function(app){
         authRoutes = express.Router(),
         todoRoutes = express.Router(),
         messageRoutes = express.Router();
+        friendshipRoutes = express.Router();
  
     // Auth Routes
     apiRoutes.use('/auth', authRoutes);
@@ -38,6 +40,13 @@ module.exports = function(app){
 
     messageRoutes.post('/getmessages', MessageController.getMessages);
     messageRoutes.post('/savemessage', MessageController.createMessage);
+
+    // FriendshipRoutes
+
+    apiRoutes.use('/friendship', friendshipRoutes);
+
+    friendshipRoutes.get('/getallusers', FriendshipController.getAllUsers);
+
 
     // Set up routes
     app.use('/api', apiRoutes);
