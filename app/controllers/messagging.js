@@ -42,7 +42,9 @@ exports.createMessage = function (req, res, next) {
 
 exports.getMessages = function (req, res, next) {
 
-    receiver = req.body.receiver;
+    console.log(req);
+
+    receiver = req.receiver;
 
     Message.find({
         receiver: receiver._id
