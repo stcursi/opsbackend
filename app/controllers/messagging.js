@@ -7,7 +7,7 @@ exports.createMessage = function (req, res, next) {
     reception: req.body.reception;
     longitude: req.body.longitude;
     latitude: req.body.latitude;
-    received: req.body.received;g
+    received: req.body.received; g
 
     if (!receiver) {
         return res.status(422).send({ error: 'You must enter a receiver' });
@@ -42,10 +42,10 @@ exports.createMessage = function (req, res, next) {
 
 exports.getMessages = function (req, res, next) {
 
-    receiver = req.receiver;
+    idReceiver = req.body._id;
 
     Message.find({
-        receiver: receiver._id
+        receiver: idReceiver
     }, function (err, messages) {
         if (err) {
             return next(err);
