@@ -2,16 +2,16 @@ var Message = require('../models/message');
 
 exports.createMessage = function (req, res, next) {
 
-    sender: req.body.sender;
-    receiver: req.body.receiver;
-    text: req.body.text;
-    photo: req.body.photo;
-    reception: req.body.reception;
-    longitude: req.body.longitude;
-    latitude: req.body.latitude;
-    received: req.body.received; 
-    creationDateUtc: req.body.creationDateUtc;
-    lastUpdateUtc: req.body.lastUpdateUtc;
+    var sender = req.body.sender;
+    var receiver = req.body.receiver;
+    var text = req.body.text;
+    var photo = req.body.photo;
+    var reception = req.body.reception;
+    var longitude = req.body.longitude;
+    var latitude = req.body.latitude;
+    var received = req.body.received;
+    var creationDateUtc = req.body.creationDateUtc;
+    var lastUpdateUtc = req.body.lastUpdateUtc;
 
     if (!receiver) {
         return res.status(422).send({ error: 'You must enter a receiver' });
@@ -52,7 +52,7 @@ exports.createMessage = function (req, res, next) {
 
 exports.getMessages = function (req, res, next) {
 
-    idReceiver = req.body._id;
+    var idReceiver = req.body._id;
 
     Message.find({
         receiver: idReceiver
