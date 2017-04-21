@@ -23,15 +23,15 @@ exports.createMessage = function (req, res, next) {
 
     var message = new Message({
         sender: sender,
-        text: text,
-        photo: photo,
         receiver: receiver,
-        reception: reception,
-        longitude: longitude,
         latitude: latitude,
+        longitude: longitude,
         received: received,
+        reception: reception,
         creationDateUtc: creationDateUtc,
-        lastUpdateUtc: lastUpdateUtc
+        lastUpdateUtc: lastUpdateUtc,
+        photo: photo,
+        text: text
     })
 
     message.save(function (err, message) {
