@@ -11,11 +11,11 @@ var MessageSchema = new mongoose.Schema({
         ref: 'User'
     },
     latitude: {
-        type: String,
+        type: Number,
         required: true
     },
     longitude: {
-        type: String,
+        type: Number,
         required: true
     },
     reiceved: {
@@ -25,6 +25,22 @@ var MessageSchema = new mongoose.Schema({
     reception: {
         type: Date,
         default: Date.now
+    },
+    creationDateUtc: {
+        type: Date,
+        default: Date.now
+    },
+    lastUpdateDateUtc: {
+        type: Date,
+        dafault: Date.now
+    },
+    photo: {
+        data: Buffer,
+        contentType: String
+    },
+    text: {
+        type: String,
+        required: false
     }
 
 }, {

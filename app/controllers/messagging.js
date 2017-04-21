@@ -4,10 +4,14 @@ exports.createMessage = function (req, res, next) {
 
     sender: req.body.sender;
     receiver: req.body.receiver;
+    text: req.body.text;
+    photo: req.body.photo;
     reception: req.body.reception;
     longitude: req.body.longitude;
     latitude: req.body.latitude;
-    received: req.body.received; g
+    received: req.body.received; 
+    creationDateUtc: req.body.creationDateUtc;
+    lastUpdateUtc: req.body.lastUpdateUtc;
 
     if (!receiver) {
         return res.status(422).send({ error: 'You must enter a receiver' });
@@ -19,11 +23,15 @@ exports.createMessage = function (req, res, next) {
 
     var message = new Message({
         sender: sender,
+        text: text,
+        photo: photo,
         receiver: receiver,
         reception: reception,
         longitude: longitude,
         latitude: latitude,
-        received: received
+        received: received,
+        creationDateUtc: creationDateUtc,
+        lastUpdateUtc: lastUpdateUtc
     })
 
     message.save(function (err, message) {
