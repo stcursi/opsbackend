@@ -36,8 +36,10 @@ exports.createMessage = function (req, res, next) {
 
     message.save(function (err, message) {
 
+        console.log(message)
+
         if (err) {
-            return next(err +" -"+ message);
+            return next(err);
         }
         else {
             return res.json(message);
