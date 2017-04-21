@@ -37,7 +37,7 @@ exports.createMessage = function (req, res, next) {
     message.save(function (err, message) {
 
         if (err) {
-            return next(err);
+            return next(err +" -"+ message);
         }
         else {
             return res.json(message);
