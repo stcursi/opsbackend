@@ -39,6 +39,7 @@ module.exports = function(app){
     apiRoutes.use('/message', messageRoutes);
 
     messageRoutes.post('/getmessages', MessageController.getMessages);
+    messageRoutes.post('/getlocatedmessages'. MessageController.getLocatedMessages)
     messageRoutes.post('/savemessage', MessageController.createMessage);
 
     // FriendshipRoutes

@@ -24,8 +24,7 @@ exports.createMessage = function (req, res, next) {
     var message = new Message({
         sender: sender,
         receiver: receiver,
-        latitude: latitude,
-        longitude: longitude,
+        geo: [latitude, longitude],
         received: received,
         reception: reception,
         creationDateUtc: creationDateUtc,
@@ -63,5 +62,24 @@ exports.getMessages = function (req, res, next) {
             return res.json(messages);
         }
     });
+
+}
+
+exports.getLocatedMessages = function (req, res, next) {
+
+    var distance = 1000 / 6371;
+
+    Message.find({
+        receiver: req.body._id,
+        geo: {
+            $near: [
+                req.body.longitude,
+                req.body.latitude
+            ],
+            $maxDistance: distance
+
+        }
+    })
+
 
 }

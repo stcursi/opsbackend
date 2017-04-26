@@ -10,13 +10,9 @@ var MessageSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    latitude: {
-        type: Number,
-        required: true
-    },
-    longitude: {
-        type: Number,
-        required: true
+    geo: {
+        type: [Number],
+        index: '2d'
     },
     reiceved: {
         type: Boolean,
