@@ -47,7 +47,7 @@ module.exports = function (app) {
     apiRoutes.use('/friendship', friendshipRoutes);
 
     friendshipRoutes.get('/getallusers', FriendshipController.getAllUsers);
-    friendshipRoutes.get('/getfriends', FriendshipController.getFriends);
+    friendshipRoutes.post('/getfriends', FriendshipController.getFriends);
     friendshipRoutes.post('/sendfriendrequest', FriendshipController.sendFriendRequest);
     friendshipRoutes.post('/acceptfriendrequest', FriendshipController.acceptFriendRequest);
 
