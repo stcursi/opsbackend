@@ -16,7 +16,7 @@ exports.getAllUsers = function (req, res, next) {
 
 exports.getFriends = function (req, res, next) {
 
-    var arrayUser = Document[];
+    var arrayUser = new Document[];
 
     Friendship.find({ request_to: req.body._id, accepted: true },
         function (err, friendships) {
