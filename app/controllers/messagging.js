@@ -67,7 +67,7 @@ exports.getMessages = function (req, res, next) {
 
 exports.getLocatedMessages = function (req, res, next) {
 
-    var distance = 1000 / 6371;
+    var distance = 100 / 3963.2;
 
     Message.find({
         receiver: req.body._id,
