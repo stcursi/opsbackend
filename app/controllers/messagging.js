@@ -69,6 +69,8 @@ exports.getLocatedMessages = function (req, res, next) {
 
     var distance = 100 / 3963.2;
 
+    console.log(req.body.longitude + " - " + req.body.latitude);
+
     Message.find({
         receiver: req.body._id,
         'geo': {
