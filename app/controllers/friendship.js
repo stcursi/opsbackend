@@ -66,7 +66,7 @@ exports.acceptFriendRequest = function (req, res, next) {
 
     Friendship.findOneAndUpdate({
         _id: req.body_id
-    }, , req.body, function (err, friendship) {
+    }, req.body, function (err, friendship) {
         if (err) {
             return next(err);
         } else {
