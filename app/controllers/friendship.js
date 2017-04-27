@@ -37,6 +37,8 @@ exports.getFriends = function (req, res, next) {
                     )
                 })
 
+                console.log(res);
+
                 return res;
 
             }
