@@ -22,6 +22,8 @@ exports.getFriends = function (req, res, next) {
                 return next(err);
             } else {
 
+                console.log("entrato" + friendships.length + " daje");
+
                 friendships.forEach(function (err, friend) {
 
                     User.findOne({ _id: friend.friend_id },
