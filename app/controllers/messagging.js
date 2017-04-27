@@ -73,7 +73,7 @@ exports.getLocatedMessages = function (req, res, next) {
 
     Message.find({
         receiver: req.body._id,
-        'geo': {
+        geo: {
             $near: [
                 req.body.longitude,
                 req.body.latitude
