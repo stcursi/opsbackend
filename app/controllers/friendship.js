@@ -36,8 +36,11 @@ exports.getFriends = function (req, res, next) {
                         }
                     )
                 })
-
-                return res.json();
+                if (friendships.length == 0) {
+                    return res.json(friendships);
+                }else{
+                    return res
+                }
 
             }
         });
