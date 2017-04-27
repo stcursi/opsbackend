@@ -16,8 +16,6 @@ exports.getAllUsers = function (req, res, next) {
 
 exports.getFriends = function (req, res, next) {
 
-    var arrayUser = User[];
-
     Friendship.find({ request_to: req.body._id, accepted: true },
         function (err, friendships) {
             if (err) {
@@ -31,13 +29,13 @@ exports.getFriends = function (req, res, next) {
                             if (err) {
                                 return next(err);
                             } else {
-                                arrayUser.put(user);
+                                res.json(user);
                             }
                         }
                     )
                 })
 
-                return res.json(arrayUser);
+                return res;
 
             }
         });
